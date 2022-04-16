@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,19 +12,33 @@ public class Move : MonoBehaviour
     private Vector3 newPosition;
     private Vector2 lastMousePosition;
     public float rotationSpeed;
-
+    private bool isGrounded;
+    private float playerSize;
     // Start is called before the first frame update
     void Start()
     {
+
         rb = GetComponent<Rigidbody>();
+        CapsuleCollider playerCollider = GetComponent<CapsuleCollider>();
+        playerSize = playerCollider.bounds.extents.y;
+        lastMousePosition = Input.mousePosition;
     }
 
     private void FixedUpdate()
     {
         Vector3 moveRight = transform.right * movementDir.x;
         Vector3 moveForward = transform.forward * movementDir.z;
+
         Vector3 newPosition = transform.position + ((moveRight + moveForward) * speed * Time.deltaTime);
         rb.MovePosition(newPosition);
+    }
+
+    bool checkGround()
+    {
+        Vector3 raycastOrigin = transform.position;
+        raycastOrigin.y -= (playerSize - 0.1f);
+        int layerMask = LayerMask.GetMask("Ground");
+        return Physics.Raycast(raycastOrigin, new Vector3(0.0f, -1.0f, 0.0f), 0.2f, layerMask);
     }
 
     // Update is called once per frame
@@ -32,8 +46,9 @@ public class Move : MonoBehaviour
     {
         Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         Vector2 rotationAmount = mousePosition - lastMousePosition;
+        isGrounded = checkGround();
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && isGrounded)
         {
             Vector3 force = new Vector3(0.0f, jumpForce, 0.0f);
             rb.AddForce(force, ForceMode.Impulse);
