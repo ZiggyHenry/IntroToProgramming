@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6208170554651233616}
   - component: {fileID: 6208170554651233619}
   - component: {fileID: -719856558484018265}
-  m_Layer: 0
-  m_Name: Cube
+  m_Layer: 7
+  m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6208170554651233618}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &6208170554651233616
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -112,3 +112,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 6777120543133685384, guid: 1ae3b24817b329e44ade60af83d7acce, type: 3}
   firingRate: 2
+  bulletForce: 30

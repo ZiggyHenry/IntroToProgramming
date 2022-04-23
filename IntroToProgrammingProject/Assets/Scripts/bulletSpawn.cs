@@ -7,6 +7,7 @@ public class bulletSpawn : MonoBehaviour
     public GameObject prefab;
     public float firingRate;
     private float currentTime = 0.0f;
+    public float bulletForce = 30.0f;
 
     void Start()
     {
@@ -18,11 +19,10 @@ public class bulletSpawn : MonoBehaviour
         currentTime += Time.deltaTime;
         if (currentTime >= firingRate)
         {
-            Vector3 spawnPosition = transform.position + (transform.forward * 1.2f);
-            GameObject obj = GameObject.Instantiate(prefab, spawnPosition, Quaternion.identity);
-
+            GameObject obj = GameObject.Instantiate(prefab, transform.position, Quaternion.identity);
+            
             Rigidbody rb = obj.GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 500.0f);
+            rb.AddForce(transform.forward * bulletForce, ForceMode.Impulse);
             currentTime = 0.0f;
         }
     }

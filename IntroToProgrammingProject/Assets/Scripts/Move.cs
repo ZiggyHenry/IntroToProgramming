@@ -14,6 +14,8 @@ public class Move : MonoBehaviour
     public float rotationSpeed;
     private bool isGrounded;
     private float playerSize;
+    public Transform spawnPoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +46,7 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        rb.angularVelocity = Vector3.zero;
         Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         Vector2 rotationAmount = mousePosition - lastMousePosition;
         isGrounded = checkGround();
@@ -80,5 +83,13 @@ public class Move : MonoBehaviour
         }
 
         lastMousePosition = mousePosition;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("You Died");
+        transform.position = spawnPoint.position;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
     }
 }
