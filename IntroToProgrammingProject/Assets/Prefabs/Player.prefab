@@ -216,3 +216,4 @@ MonoBehaviour:
   speed: 10
   jumpForce: 1
   rotationSpeed: 5
+  spawnPoint: {fileID: 0}

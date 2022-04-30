@@ -175,6 +175,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -719856558484018265, guid: 46425dfc9f510654f8f815198e4f2f15, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1189605024}
     - target: {fileID: 6208170554651233618, guid: 46425dfc9f510654f8f815198e4f2f15, type: 3}
       propertyPath: m_Name
       value: Cube
@@ -232,6 +236,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -719856558484018265, guid: 46425dfc9f510654f8f815198e4f2f15, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1189605024}
     - target: {fileID: -719856558484018265, guid: 46425dfc9f510654f8f815198e4f2f15, type: 3}
       propertyPath: bulletForce
       value: 5
@@ -317,6 +325,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1189605024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4548858866722029067, guid: c5c7258cb5901324fadf665887fdc3fc, type: 3}
+  m_PrefabInstance: {fileID: 4548858866759637324}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1363942169
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,6 +435,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -719856558484018265, guid: 46425dfc9f510654f8f815198e4f2f15, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1189605024}
     - target: {fileID: 6208170554651233618, guid: 46425dfc9f510654f8f815198e4f2f15, type: 3}
       propertyPath: m_Name
       value: Cube (1)
@@ -573,6 +590,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -719856558484018265, guid: 46425dfc9f510654f8f815198e4f2f15, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1189605024}
     - target: {fileID: 6208170554651233618, guid: 46425dfc9f510654f8f815198e4f2f15, type: 3}
       propertyPath: m_Name
       value: Cube (3)

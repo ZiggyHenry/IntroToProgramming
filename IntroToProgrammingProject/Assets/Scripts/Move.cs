@@ -19,7 +19,6 @@ public class Move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         rb = GetComponent<Rigidbody>();
         CapsuleCollider playerCollider = GetComponent<CapsuleCollider>();
         playerSize = playerCollider.bounds.extents.y;
