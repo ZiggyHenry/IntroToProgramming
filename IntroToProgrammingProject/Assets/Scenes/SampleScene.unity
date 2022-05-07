@@ -179,14 +179,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1189605024}
-    - target: {fileID: -719856558484018265, guid: 46425dfc9f510654f8f815198e4f2f15, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1189605030}
-    - target: {fileID: -719856558484018265, guid: 46425dfc9f510654f8f815198e4f2f15, type: 3}
-      propertyPath: rotationSpeed
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6208170554651233618, guid: 46425dfc9f510654f8f815198e4f2f15, type: 3}
       propertyPath: m_Name
       value: Cube
@@ -249,16 +241,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1189605024}
     - target: {fileID: -719856558484018265, guid: 46425dfc9f510654f8f815198e4f2f15, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1189605030}
-    - target: {fileID: -719856558484018265, guid: 46425dfc9f510654f8f815198e4f2f15, type: 3}
       propertyPath: bulletForce
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: -719856558484018265, guid: 46425dfc9f510654f8f815198e4f2f15, type: 3}
-      propertyPath: rotationSpeed
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6208170554651233618, guid: 46425dfc9f510654f8f815198e4f2f15, type: 3}
       propertyPath: m_Name
@@ -344,11 +328,6 @@ Transform:
 --- !u!1 &1189605024 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4548858866722029067, guid: c5c7258cb5901324fadf665887fdc3fc, type: 3}
-  m_PrefabInstance: {fileID: 4548858866759637324}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1189605030 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4548858866722029063, guid: c5c7258cb5901324fadf665887fdc3fc, type: 3}
   m_PrefabInstance: {fileID: 4548858866759637324}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1363942169
@@ -460,14 +439,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1189605024}
-    - target: {fileID: -719856558484018265, guid: 46425dfc9f510654f8f815198e4f2f15, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1189605030}
-    - target: {fileID: -719856558484018265, guid: 46425dfc9f510654f8f815198e4f2f15, type: 3}
-      propertyPath: rotationSpeed
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6208170554651233618, guid: 46425dfc9f510654f8f815198e4f2f15, type: 3}
       propertyPath: m_Name
       value: Cube (1)
@@ -724,14 +695,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1189605024}
-    - target: {fileID: -719856558484018265, guid: 46425dfc9f510654f8f815198e4f2f15, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1189605030}
-    - target: {fileID: -719856558484018265, guid: 46425dfc9f510654f8f815198e4f2f15, type: 3}
-      propertyPath: rotationSpeed
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6208170554651233618, guid: 46425dfc9f510654f8f815198e4f2f15, type: 3}
       propertyPath: m_Name
       value: Cube (3)
@@ -790,20 +753,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4548858866722029057, guid: c5c7258cb5901324fadf665887fdc3fc, type: 3}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4548858866722029057, guid: c5c7258cb5901324fadf665887fdc3fc, type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1168397644}
     - target: {fileID: 4548858866722029057, guid: c5c7258cb5901324fadf665887fdc3fc, type: 3}
       propertyPath: spawnPoint.y
       value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4548858866722029057, guid: c5c7258cb5901324fadf665887fdc3fc, type: 3}
-      propertyPath: rotationSpeed
-      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4548858866722029063, guid: c5c7258cb5901324fadf665887fdc3fc, type: 3}
       propertyPath: m_RootOrder
@@ -815,7 +770,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4548858866722029063, guid: c5c7258cb5901324fadf665887fdc3fc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4548858866722029063, guid: c5c7258cb5901324fadf665887fdc3fc, type: 3}
       propertyPath: m_LocalPosition.z
