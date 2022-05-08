@@ -6,7 +6,7 @@ public class Move : MonoBehaviour
 {
     public float speed;
     public float jumpForce;
-    Rigidbody rb;
+    private Rigidbody rb;
 
     private Vector3 movementDir;
     private Vector3 newPosition;
