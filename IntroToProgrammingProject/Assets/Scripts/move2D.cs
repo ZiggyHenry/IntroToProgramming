@@ -6,6 +6,8 @@ public class move2D : MonoBehaviour
 {
     public float movementSpeed;
     public float JumpForce = 0.1f;
+    public Transform spawnPoint;
+    public Camera cam;
 
     private Rigidbody2D rb;
     private BoxCollider2D playerCollider;
@@ -54,5 +56,13 @@ public class move2D : MonoBehaviour
         int layerMask = LayerMask.GetMask("Ground");
 
         return Physics2D.Raycast(RaycastOrigin, new Vector2(0.0f, -1.0f), 0.05f, layerMask);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("You Died");
+        transform.position = spawnPoint.position;
+        cam.transform.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y, cam.transform.position.z);
+        rb.velocity = Vector2.zero;
     }
 }
