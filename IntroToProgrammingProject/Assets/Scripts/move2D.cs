@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class move2D : MonoBehaviour
 {
@@ -8,11 +11,14 @@ public class move2D : MonoBehaviour
     public float JumpForce = 0.1f;
     public Transform spawnPoint;
     public Camera cam;
+    public Slider healthBar;
 
     private Rigidbody2D rb;
     private BoxCollider2D playerCollider;
     private SpriteRenderer spriteRenderer;
     private float playerSize;
+
+    private Vector2 newPosition;
 
 
     void Start()
@@ -21,11 +27,12 @@ public class move2D : MonoBehaviour
         playerCollider = rb.GetComponent<BoxCollider2D>();
         playerSize = playerCollider.bounds.extents.y;
         spriteRenderer = rb.GetComponent<SpriteRenderer>();
+        healthBar.value = 1.0f;
     }
 
     void Update()
     {
-        Vector2 newPosition = transform.position;
+        newPosition = transform.position;
 
         if (Input.GetKey(KeyCode.A))
         {
@@ -46,6 +53,11 @@ public class move2D : MonoBehaviour
             rb.AddForce(new Vector2(0.0f, JumpForce), ForceMode2D.Impulse);
         }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ResetPlayer();
+        }
+
         transform.position = newPosition;
     }
 
@@ -61,8 +73,16 @@ public class move2D : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("You Died");
-        transform.position = spawnPoint.position;
+        healthBar.value -= 0.1f;
+        ResetPlayer();
+    }
+
+    private void ResetPlayer()
+    {
+        newPosition = spawnPoint.position;
         cam.transform.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y, cam.transform.position.z);
         rb.velocity = Vector2.zero;
+
+        transform.position = newPosition; //Only useful for the OnTriggerEnter and not the R button
     }
 }
