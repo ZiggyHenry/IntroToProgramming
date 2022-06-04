@@ -14,39 +14,60 @@ public class move2D : MonoBehaviour
     public Slider healthBar;
 
     private Rigidbody2D rb;
-    private BoxCollider2D playerCollider;
-    private SpriteRenderer spriteRenderer;
+    private CircleCollider2D playerCollider;
+    private SpriteRenderer sp;
+
     private float playerSize;
+    private bool isGrounded;
+    private Vector2 movementDir;
 
-    private Vector2 newPosition;
-
+    private bool flipX;
+    private bool isMoveRight = false;
+    private bool isMoveLeft = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerCollider = rb.GetComponent<BoxCollider2D>();
+        playerCollider = GetComponent<CircleCollider2D>();
         playerSize = playerCollider.bounds.extents.y;
-        spriteRenderer = rb.GetComponent<SpriteRenderer>();
+        sp = GetComponent<SpriteRenderer>();
         healthBar.value = 1.0f;
+    }
+
+    private void FixedUpdate()
+    {
+        MovePlayer();
+    }
+
+    private void MovePlayer()
+    {
+        Vector3 moveForward = transform.right * movementDir.x * movementSpeed * Time.fixedDeltaTime;
+        rb.AddForce(moveForward, ForceMode2D.Impulse);
     }
 
     void Update()
     {
-        newPosition = transform.position;
+        isGrounded = checkGround();
+        movementDir = Vector2.zero;
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || isMoveLeft)
         {
-            newPosition.x -= movementSpeed;
-            spriteRenderer.flipX = true;
+            movementDir.x = -1.0f;
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) || isMoveRight)
         {
-            newPosition.x += movementSpeed;
-            spriteRenderer.flipX = false;
+            movementDir.x = 1.0f;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && IsOnGround())
+        flipX = false;
+        if (rb.velocity.x < 0)
+        {
+            flipX = true;
+        }
+        sp.flipX = flipX;
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.velocity = Vector2.zero;
 
@@ -57,11 +78,9 @@ public class move2D : MonoBehaviour
         {
             ResetPlayer();
         }
-
-        transform.position = newPosition;
     }
 
-    bool IsOnGround()
+    bool checkGround()
     {
         Vector2 RaycastOrigin = transform.position;
         RaycastOrigin.y -= (playerSize - 0.01f);
@@ -79,10 +98,21 @@ public class move2D : MonoBehaviour
 
     private void ResetPlayer()
     {
-        newPosition = spawnPoint.position;
         cam.transform.position = new Vector3(spawnPoint.position.x, spawnPoint.position.y, cam.transform.position.z);
         rb.velocity = Vector2.zero;
 
-        transform.position = newPosition; //Only useful for the OnTriggerEnter and not the R button
+        transform.position = spawnPoint.position;
+    }
+
+    public void MoveLeft()
+    {
+        isMoveLeft = true;
+        isMoveRight = false;
+    }
+
+    public void MoveRight()
+    {
+        isMoveRight = true;
+        isMoveLeft = false;
     }
 }
